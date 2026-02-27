@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('task_token');
     setToken(null);
-    window.location.href = "/"; 
+    window.location.href = "/";
   };
 
   return (
@@ -23,6 +23,7 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

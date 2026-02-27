@@ -4,13 +4,18 @@ import { useForm } from "react-hook-form";
 // eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Eye, EyeOff, ShieldCheck, Zap, ArrowRight } from "lucide-react";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 const Login = () => {
   // eslint-disable-next-line no-unused-vars
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
-  // Mouse tilt logic (Pro Level)
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -37,17 +42,46 @@ const Login = () => {
     y.set(0);
   };
 
+  // const onSubmit = async (formData) => {
+  //   setLoading(true);
+  //   try {
+  //     const response = await axios.post('https://task-api-eight-flax.vercel.app/api/login', formData);
+
+  //     if (response.data.token) {
+  //       login(response.data.token);
+  //       console.log("Login Successful!");
+  //       Navigate('/dashboard');
+  //     }
+  //   } catch (error) {
+  //     console.error("Login Error:", error.response?.data?.message || "Invalid credentials");
+  //     alert(error.response?.data?.message || "Login failed! Please check credentials.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  const onSubmit = async (formData) => {
+  try {
+    const response = await axios.post('https://task-api-eight-flax.vercel.app/api/login', formData);
+
+    if (response.data.token) {
+      login(response.data.token);
+      navigate('/dashboard');
+    }
+  } catch (error) {
+    console.error("Login Error:", error.response?.data);
+    alert("Invalid Credentials! Try: user1@example.com / password123");
+  }
+};
+
   return (
     <div className="relative min-h-screen w-full bg-[#030014] flex items-center justify-center overflow-hidden font-sans">
 
-      {/* 1. Cyber Grid Background */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
-      {/* 2. Animated Plasma Orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-[120px] animate-pulse" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/30 rounded-full blur-[120px] animate-pulse" />
 
-      {/* 3. The 3D Hover Card */}
       <motion.div
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -72,7 +106,8 @@ const Login = () => {
             <div className="h-1 w-12 bg-blue-500 mx-auto mt-2 rounded-full shadow-[0_0_10px_#3b82f6]" />
           </div>
 
-          <form onSubmit={handleSubmit((d) => console.log(d))} className="space-y-6 relative z-10">
+          {/* <form onSubmit={handleSubmit((d) => console.log(d))} className="space-y-6 relative z-10"> */}
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 relative z-10">
 
             {/* Input Field: Identity */}
             <div className="space-y-1">
