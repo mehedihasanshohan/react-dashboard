@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { AuthProvider } from './context/AuthContext';
+import TeamContent from './components/TeamContent';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/team",
+    element: <TeamContent></TeamContent>
   }
 ]);
 
