@@ -1,4 +1,6 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 
 const AnalyticsContent = ({ analyticsData }) => {
   return (
@@ -20,7 +22,7 @@ const AnalyticsContent = ({ analyticsData }) => {
           </h2>
           <p className="text-[10px] text-slate-400 font-bold mt-1">Real-time tracking</p>
         </div>
-        <div className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 bg-gradient-to-br from-[#006D35] to-[#004D25] text-white">
+        <div className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 bg-linear-to-br from-[#006D35] to-[#004D25] text-white">
           <p className="text-xs font-black opacity-70 uppercase tracking-widest">Performance</p>
           <h2 className="text-3xl font-black mt-2">Excellent</h2>
           <p className="text-[10px] opacity-80 font-bold mt-1">Based on neural insights</p>
@@ -39,7 +41,7 @@ const AnalyticsContent = ({ analyticsData }) => {
           </select>
         </div>
 
-        <div className="h-[350px] w-full">
+        <div className="h-87.5 w-full">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={analyticsData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
               <defs>
