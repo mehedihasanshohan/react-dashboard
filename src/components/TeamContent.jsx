@@ -10,10 +10,10 @@ const TeamContent = ({ users }) => {
     >
       <div className="flex justify-between items-center mb-10">
         <div>
-          <h2 className="text-2xl font-black tracking-tight">Team Members</h2>
-          <p className="text-sm text-slate-400 mt-1">Manage your team and their access levels.</p>
+          <h2 className="text-xl font-semibold tracking-tight">Team Members</h2>
+          <p className="text-md text-slate-400 mt-1">Manage your team and their access levels.</p>
         </div>
-        <button className="bg-[#006D35] text-white px-6 py-3 rounded-full text-sm font-black flex items-center gap-2 shadow-lg hover:bg-[#005a2c] transition-all">
+        <button className="bg-[#006D35] text-white px-6 py-3 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg hover:bg-[#005a2c] transition-all">
           <Plus size={18} /> Invite Member
         </button>
       </div>
@@ -21,7 +21,7 @@ const TeamContent = ({ users }) => {
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-slate-50 text-slate-400 text-[11px] uppercase tracking-[0.2em] font-black">
+            <tr className="border-b border-slate-50 text-slate-400 text-[11px] uppercase tracking-[0.2em] font-semibold">
               <th className="pb-4 pl-4">Member</th>
               <th className="pb-4">Status</th>
               <th className="pb-4">Joining Date</th>
@@ -33,17 +33,17 @@ const TeamContent = ({ users }) => {
               <tr key={user.id} className="group hover:bg-slate-50/50 transition-colors">
                 <td className="py-5 pl-4">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#D1FAE5] text-[#006D35] flex items-center justify-center font-black text-xs">
+                    <div className="w-10 h-10 rounded-full bg-[#D1FAE5] text-[#006D35] flex items-center justify-center font-semibold text-xs">
                       {user.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
-                      <p className="text-sm font-black text-slate-800">{user.name}</p>
+                      <p className="text-sm font-semibold text-slate-800">{user.name}</p>
                       <p className="text-xs text-slate-400">{user.email}</p>
                     </div>
                   </div>
                 </td>
                 <td className="py-5">
-                  <span className={`px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-tighter ${
+                  <span className={`px-3 py-1.5 rounded-lg text-[10px] font-semibold uppercase tracking-tighter ${
                     user.status === 'active'
                     ? 'bg-green-50 text-green-600 border border-green-100'
                     : 'bg-slate-50 text-slate-400 border border-slate-100'

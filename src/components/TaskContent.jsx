@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import {
   LayoutDashboard, Users, BarChart3, LogOut,
   Bell, Search, Plus, ArrowUpRight, Play, MoreHorizontal,
-  CheckCircle2 
+  CheckCircle2
 } from "lucide-react";
 
 const TasksContent = ({ tasks }) => {
@@ -15,14 +15,14 @@ const TasksContent = ({ tasks }) => {
     >
       <div className="flex justify-between items-center">
         <div>
-          <h2 className="text-3xl font-black tracking-tight">Project Tasks</h2>
-          <p className="text-slate-400 text-sm mt-1">Manage and track your product-based tasks.</p>
+          <h2 className="text-3xl font-semibold tracking-tight">Project Tasks</h2>
+          <p className="text-slate-600 text-sm mt-1">Manage and track your product-based tasks.</p>
         </div>
         <div className="flex gap-3">
-          <button className="p-3 bg-white border border-slate-100 rounded-2xl text-slate-400 hover:text-slate-600 transition-all shadow-sm">
+          <button className="p-3 bg-white border border-slate-100 rounded-xl text-slate-400 hover:text-slate-600 transition-all shadow-sm">
             <Search size={20} />
           </button>
-          <button className="bg-[#006D35] text-white px-6 py-3 rounded-2xl text-sm font-black flex items-center gap-2 shadow-lg shadow-green-900/10 hover:bg-[#005a2c] transition-all">
+          <button className="bg-[#006D35] text-white px-6 py-3 rounded-xl text-sm font-semibold flex items-center gap-2 shadow-lg shadow-green-900/10 hover:bg-[#005a2c] transition-all">
             <Plus size={18} /> New Task
           </button>
         </div>
@@ -33,11 +33,11 @@ const TasksContent = ({ tasks }) => {
           <motion.div
             key={task.id}
             whileHover={{ y: -5 }}
-            className="bg-white p-7 rounded-[2.5rem] shadow-sm border border-slate-50 relative overflow-hidden group"
+            className="bg-white p-7 rounded-xl shadow-sm border border-slate-50 relative overflow-hidden group"
           >
             {/* Status Badge */}
             <div className="flex justify-between items-start mb-6">
-              <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${
+              <span className={`px-4 py-1.5 rounded-full text-[10px] font-semibold uppercase tracking-widest ${
                 idx % 2 === 0 ? 'bg-blue-50 text-blue-600' : 'bg-orange-50 text-orange-600'
               }`}>
                 {task.category}
@@ -47,7 +47,7 @@ const TasksContent = ({ tasks }) => {
               </button>
             </div>
 
-            <h3 className="text-xl font-black text-slate-800 mb-2 group-hover:text-[#006D35] transition-colors">
+            <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-[#006D35] transition-colors">
               {task.name}
             </h3>
             <p className="text-xs text-slate-400 leading-relaxed mb-8">
@@ -67,8 +67,8 @@ const TasksContent = ({ tasks }) => {
                 <div className="w-8 h-8 rounded-full bg-slate-50 border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-400">+2</div>
               </div>
               <div className="text-right">
-                <p className="text-[10px] text-slate-300 font-bold uppercase tracking-tighter leading-none mb-1">Budget</p>
-                <p className="font-black text-slate-800">${task.price}</p>
+                <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-tighter leading-none mb-1">Budget</p>
+                <p className="font-semibold text-slate-800">${task.price}</p>
               </div>
             </div>
           </motion.div>

@@ -10,32 +10,32 @@ const AnalyticsContent = ({ analyticsData }) => {
       className="space-y-6"
     >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-50">
-          <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Avg. Conversion</p>
-          <h2 className="text-3xl font-black mt-2 text-[#006D35]">12.4%</h2>
-          <p className="text-[10px] text-green-500 font-bold mt-1">+2.1% from last week</p>
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-50">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Avg. Conversion</p>
+          <h2 className="text-3xl font-semibold mt-2 text-[#006D35]">12.4%</h2>
+          <p className="text-[10px] text-green-500 font-semibold mt-1">+2.1% from last week</p>
         </div>
-        <div className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-50">
-          <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Total Clicks</p>
-          <h2 className="text-3xl font-black mt-2 text-slate-800">
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-50">
+          <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Total Clicks</p>
+          <h2 className="text-3xl font-semibold mt-2 text-slate-800">
             {analyticsData?.reduce((acc, curr) => acc + curr.clicks, 0).toLocaleString()}
           </h2>
-          <p className="text-[10px] text-slate-400 font-bold mt-1">Real-time tracking</p>
+          <p className="text-[10px] text-slate-400 font-semibold mt-1">Real-time tracking</p>
         </div>
-        <div className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 bg-linear-to-br from-[#006D35] to-[#004D25] text-white">
-          <p className="text-xs font-black opacity-70 uppercase tracking-widest">Performance</p>
-          <h2 className="text-3xl font-black mt-2">Excellent</h2>
-          <p className="text-[10px] opacity-80 font-bold mt-1">Based on neural insights</p>
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 bg-linear-to-br from-[#006D35] to-[#004D25] text-white">
+          <p className="text-xs font-semibold opacity-70 uppercase tracking-widest">Performance</p>
+          <h2 className="text-3xl font-semibold mt-2">Excellent</h2>
+          <p className="text-[10px] opacity-80 font-semibold mt-1">Based on neural insights</p>
         </div>
       </div>
 
-      <div className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-50">
+      <div className="bg-white p-8 rounded-xl shadow-sm border border-slate-50">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h3 className="text-xl font-black tracking-tight">Traffic Overview</h3>
+            <h3 className="text-xl font-semibold tracking-tight">Traffic Overview</h3>
             <p className="text-xs text-slate-400">Detailed views and engagement metrics per day.</p>
           </div>
-          <select className="bg-slate-50 border-none text-[10px] font-black rounded-full px-4 py-2 outline-none">
+          <select className="bg-slate-50 border-none text-[10px] font-semibold rounded-full px-4 py-2 outline-none">
             <option>Last 7 Days</option>
             <option>Last 30 Days</option>
           </select>
@@ -60,7 +60,7 @@ const AnalyticsContent = ({ analyticsData }) => {
               />
               <YAxis hide={true} />
               <Tooltip
-                contentStyle={{ borderRadius: '20px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', padding: '15px' }}
+                contentStyle={{ borderRadius: '20px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)', padding: '15px', }}
               />
               <Area
                 type="monotone"
@@ -73,7 +73,7 @@ const AnalyticsContent = ({ analyticsData }) => {
               <Area
                 type="monotone"
                 dataKey="clicks"
-                stroke="#D1FAE5"
+                stroke="#006D35"
                 strokeWidth={3}
                 fill="transparent"
               />
@@ -84,11 +84,11 @@ const AnalyticsContent = ({ analyticsData }) => {
         <div className="mt-6 flex gap-6 justify-center border-t border-slate-50 pt-6">
            <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-[#006D35]"></span>
-              <span className="text-[11px] font-black text-slate-500 uppercase">Page Views</span>
+              <span className="text-[11px] font-semibold text-slate-500 uppercase">Page Views</span>
            </div>
            <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-[#D1FAE5] border border-slate-200"></span>
-              <span className="text-[11px] font-black text-slate-500 uppercase">Clicks</span>
+              <span className="text-[11px] font-semiboldt text-slate-500 uppercase">Clicks</span>
            </div>
         </div>
       </div>

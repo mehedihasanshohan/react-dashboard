@@ -71,7 +71,7 @@ const NavItem = ({ icon, label, active, badge, onClick }) => (
     <span className={active ? "text-[#006D35]" : "text-slate-400"}>{icon}</span>
     <span className="text-[13px] flex-1">{label}</span>
     {badge && (
-      <span className="bg-[#006D35] text-white text-[9px] font-black px-1.5 py-0.5 rounded-full">
+      <span className="bg-[#006D35] text-white text-[9px] font-semibold px-1.5 py-0.5 rounded-full">
         {badge}
       </span>
     )}
@@ -89,16 +89,16 @@ const StatCard = ({ title, value, growth, active, note }) => (
     }`}
   >
     <p
-      className={`text-[10px] font-black uppercase tracking-widest ${active ? "text-green-200" : "text-slate-400"}`}
+      className={`text-[10px] font-semibold uppercase tracking-widest ${active ? "text-green-200" : "text-slate-400"}`}
     >
       {title}
     </p>
-    <div className="text-4xl font-black my-2 tracking-tight">
+    <div className="text-4xl font-semibold my-2 tracking-tight">
       {value ?? "—"}
     </div>
     {growth != null && (
       <p
-        className={`text-[10px] font-black flex items-center gap-1 ${active ? "text-green-200" : "text-emerald-500"}`}
+        className={`text-[10px] font-semibold flex items-center gap-1 ${active ? "text-green-200" : "text-emerald-500"}`}
       >
         <ArrowUpRight size={12} strokeWidth={3} />
         {growth}% Increased from last month
@@ -143,7 +143,7 @@ const displayName = user?.name || "Pilot";
   if (loading) {
     return (
       <div className="h-screen w-full bg-[#F3F4F6] flex items-center justify-center">
-        <div className="text-[#006D35] font-black text-xl animate-pulse tracking-widest">
+        <div className="text-[#006D35] font-semibold text-xl animate-pulse tracking-widest">
           INITIALIZING NEXUS...
         </div>
       </div>
@@ -177,20 +177,20 @@ const displayName = user?.name || "Pilot";
 
   return (
     <div
-      className="min-h-screen bg-[#F3F4F6] text-[#1A1C1E] flex p-4 gap-4"
+      className="min-h-screen bg-[#F3F4F6] text-[#1A1C1E] flex flex-col lg:flex-row md:p-4 p-4 gap-4"
       style={{ fontFamily: "'DM Sans', 'Nunito', system-ui, sans-serif" }}
     >
       {/* ── Sidebar ── */}
-      <aside className="w-56 bg-white rounded-3xl p-5 flex flex-col justify-between shadow-sm border border-slate-100 shrink-0">
+      <aside className="w-full lg:w-56 bg-white rounded-xl p-5 flex flex-row lg:flex-col  justify-between shadow-sm border border-slate-100 shrink-0">
         <div>
           <div className="flex items-center gap-2.5 mb-8 px-1">
-            <div className="w-8 h-8 bg-[#006D35] rounded-full flex items-center justify-center text-white font-black text-base shadow-md shadow-green-200">
-              D
+            <div className="w-8 h-8 bg-[#006D35] rounded-full flex items-center justify-center text-white font-semibold text-base shadow-md shadow-green-200">
+              T
             </div>
-            <span className="font-black text-xl tracking-tight">Donezo</span>
+            <span className="font-semibold text-xl tracking-tight">Tasker</span>
           </div>
 
-          <p className="text-[9px] font-black uppercase tracking-widest text-slate-300 px-4 mb-2">
+          <p className="text-[12px] font-semibold uppercase tracking-widest text-slate-500 px-4 mb-2">
             Menu
           </p>
           <nav className="space-y-1">
@@ -228,22 +228,10 @@ const displayName = user?.name || "Pilot";
             />
           </nav>
 
-          <p className="text-[9px] font-black uppercase tracking-widest text-slate-300 px-4 mb-2 mt-6">
+          <p className="text-[12px] font-semibold uppercase tracking-widest text-slate-500 px-4 mb-2 mt-6">
             General
           </p>
           <nav className="space-y-1">
-            <NavItem
-              icon={<Settings size={16} />}
-              label="Settings"
-              active={false}
-              onClick={() => {}}
-            />
-            <NavItem
-              icon={<HelpCircle size={16} />}
-              label="Help"
-              active={false}
-              onClick={() => {}}
-            />
             <NavItem
               icon={<LogOut size={16} />}
               label="Logout"
@@ -253,14 +241,14 @@ const displayName = user?.name || "Pilot";
           </nav>
         </div>
 
-        <div className="bg-[#006D35] rounded-2xl p-4 text-white mt-4">
-          <p className="text-[10px] font-black text-green-200 uppercase tracking-wide mb-1">
+        <div className="bg-[#006D35] rounded-xl p-4 text-white mt-4">
+          <p className="text-[10px] font-semibold text-green-200 uppercase tracking-wide mb-1">
             Mobile App
           </p>
-          <p className="text-xs font-black leading-tight mb-3">
+          <p className="text-md font-semibold leading-tight mb-3">
             Download our Mobile App
           </p>
-          <button className="w-full bg-white text-[#006D35] text-[10px] font-black py-2 rounded-xl hover:bg-green-50 transition-colors">
+          <button className="w-full bg-white text-[#006D35] text-[16px] font-semibold py-2 rounded-xl hover:bg-green-50 transition-colors">
             Download
           </button>
         </div>
@@ -299,7 +287,7 @@ const displayName = user?.name || "Pilot";
                 className="w-8 h-8 rounded-full object-cover"
               />
               <div>
-                <p className="text-[11px] font-black leading-none">
+                <p className="text-[11px] font-semibold leading-none">
                   {user?.displayName || "Guest User"}
                 </p>
                 <p className="text-[9px] text-slate-400 mt-0.5">
@@ -316,7 +304,7 @@ const displayName = user?.name || "Pilot";
     className="w-8 h-8 rounded-full object-cover"
   />
   <div>
-    <p className="text-[11px] font-black leading-none">
+    <p className="text-[11px] font-semibold leading-none">
       {/* Use the displayName variable we defined at the top of the component */}
       {displayName}
     </p>
@@ -347,18 +335,18 @@ const displayName = user?.name || "Pilot";
                 {/* Title Row */}
                 <div className="flex justify-between items-end">
                   <div>
-                    <h1 className="text-3xl font-black tracking-tight">
+                    <h1 className="text-3xl font-semibold tracking-tight">
                       Dashboard
                     </h1>
-                    <p className="text-slate-400 text-xs mt-1">
+                    <p className="text-slate-400 text-md mt-1">
                       Plan, prioritize, and accomplish your tasks with ease.
                     </p>
                   </div>
                   <div className="flex gap-2">
-                    <button className="bg-[#006D35] text-white px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-1.5 shadow-lg shadow-green-200 hover:bg-[#005a2b] transition-colors">
+                    <button className="bg-[#006D35] text-white px-5 py-2.5 rounded-full text-md font-semibold flex items-center gap-1.5 shadow-lg shadow-green-200 hover:bg-[#005a2b] transition-colors">
                       <Plus size={14} strokeWidth={3} /> Add Project
                     </button>
-                    <button className="bg-white text-slate-600 px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-1.5 border border-slate-200 hover:bg-slate-50 transition-colors">
+                    <button className="bg-white text-slate-600 px-5 py-2.5 rounded-full text-md font-semibold flex items-center gap-1.5 border border-slate-200 hover:bg-slate-50 transition-colors">
                       <Import size={14} /> Import Data
                     </button>
                   </div>
@@ -405,7 +393,7 @@ const displayName = user?.name || "Pilot";
                 <div className="grid grid-cols-2 gap-4">
                   {/* Chart — data.analytics[].views */}
                   <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
-                    <h3 className="font-black text-sm mb-4">
+                    <h3 className="font-semibold text-lg mb-4">
                       Project Analytics
                     </h3>
                     <ResponsiveContainer width="100%" height={130}>
@@ -448,15 +436,15 @@ const displayName = user?.name || "Pilot";
 
                   {/* Reminders */}
                   <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
-                    <h3 className="font-black text-sm mb-4">Reminders</h3>
-                    <div className="bg-[#F8F9FB] p-4 rounded-2xl">
-                      <p className="text-xs font-black">
+                    <h3 className="font-semibold text-lg mb-4">Reminders</h3>
+                    <div className="bg-[#F8F9FB] p-4 rounded-xl">
+                      <p className="text-md font-semibold">
                         Meeting with Arc Company
                       </p>
-                      <p className="text-[10px] text-slate-400 mt-1">
+                      <p className="text-[12px] text-slate-400 mt-1">
                         Time: 02:00 pm - 04:00 pm
                       </p>
-                      <button className="mt-4 w-full bg-[#006D35] text-white py-2.5 rounded-xl text-[11px] font-black flex items-center justify-center gap-2 hover:bg-[#005a2b] transition-colors">
+                      <button className="mt-4 w-full bg-[#006D35] text-white py-2.5 rounded-xl text-[11px] font-semibold flex items-center justify-center gap-2 hover:bg-[#005a2b] transition-colors">
                         <Play size={12} fill="white" /> Start Meeting
                       </button>
                     </div>
@@ -466,8 +454,8 @@ const displayName = user?.name || "Pilot";
                 {/* ── Team Collaboration — data.users ── */}
                 <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-black text-sm">Team Collaboration</h3>
-                    <button className="flex items-center gap-1 text-[10px] font-black text-slate-500 border border-slate-200 px-3 py-1.5 rounded-full hover:bg-slate-50 transition-colors">
+                    <h3 className="font-semibold text-md">Team Collaboration</h3>
+                    <button className="flex items-center gap-1 text-[10px] font-semibold text-slate-500 border border-slate-200 px-3 py-1.5 rounded-full hover:bg-slate-50 transition-colors">
                       <Plus size={10} strokeWidth={3} /> Add Member
                     </button>
                   </div>
@@ -475,7 +463,7 @@ const displayName = user?.name || "Pilot";
                     {users.map((user, i) => (
                       <div key={user.id} className="flex items-center gap-3">
                         <div
-                          className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black shrink-0"
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-semibold shrink-0"
                           style={{
                             background: avatarColors[i % avatarColors.length],
                             color:
@@ -485,16 +473,16 @@ const displayName = user?.name || "Pilot";
                           {getInitials(user.name)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-[11px] font-black text-slate-700 leading-none truncate">
+                          <p className="text-[16px] font-semibold text-slate-700 leading-none truncate">
                             {user.name}
                           </p>
-                          <p className="text-[9px] text-slate-400 mt-0.5 truncate">
+                          <p className="text-[12px] text-slate-400 mt-0.5 truncate">
                             {user.email}
                           </p>
                         </div>
                         {/* status badge — from user.status */}
                         <span
-                          className={`text-[9px] font-black px-2 py-1 rounded-md uppercase tracking-wide shrink-0 ${
+                          className={`text-[9px] font-semibold px-2 py-1 rounded-md uppercase tracking-wide shrink-0 ${
                             user.status === "active"
                               ? "bg-green-50 text-green-600"
                               : "bg-slate-100 text-slate-400"
@@ -511,8 +499,8 @@ const displayName = user?.name || "Pilot";
               {/* ── Right Column ── */}
               <div className="w-56 space-y-4 shrink-0">
                 {/* Project Progress — overview.growth as % */}
-                <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
-                  <h3 className="font-black text-sm mb-5">Project Progress</h3>
+                <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
+                  <h3 className="font-semibold text-md mb-5">Project Progress</h3>
                   <div className="relative w-32 h-32 mx-auto flex items-center justify-center">
                     <svg
                       className="w-full h-full -rotate-90"
@@ -541,8 +529,8 @@ const displayName = user?.name || "Pilot";
                       />
                     </svg>
                     <div className="absolute text-center">
-                      <span className="text-2xl font-black">{growthPct}%</span>
-                      <p className="text-[8px] text-slate-400 font-semibold mt-0.5">
+                      <span className="text-2xl font-semibold">{growthPct}%</span>
+                      <p className="text-[12px] text-slate-400 font-semibold mt-0.5">
                         Growth
                         <br />
                         Rate
@@ -560,7 +548,7 @@ const displayName = user?.name || "Pilot";
                           className="w-2 h-2 rounded-full"
                           style={{ background: item.color }}
                         />
-                        <span className="text-[8px] text-slate-500 font-semibold">
+                        <span className="text-[12px] text-slate-500 font-semibold">
                           {item.label}
                         </span>
                       </div>
@@ -569,10 +557,10 @@ const displayName = user?.name || "Pilot";
                 </div>
 
                 {/* Products / Projects — data.products ── */}
-                <div className="bg-white p-5 rounded-3xl shadow-sm border border-slate-100">
+                <div className="bg-white p-5 rounded-xl shadow-sm border border-slate-100">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-black text-sm">Project</h3>
-                    <button className="flex items-center gap-0.5 text-[9px] font-black text-slate-500 border border-slate-200 px-2 py-1 rounded-full hover:bg-slate-50">
+                    <h3 className="font-semibold text-sm">Project</h3>
+                    <button className="flex items-center gap-0.5 text-[12px] font-semibold text-slate-500 border border-slate-200 px-2 py-1 rounded-full hover:bg-slate-50">
                       <Plus size={9} strokeWidth={3} /> New
                     </button>
                   </div>
@@ -598,10 +586,10 @@ const displayName = user?.name || "Pilot";
                           />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-[10px] font-black text-slate-700 leading-none truncate">
+                          <p className="text-[12px] font-semibold text-slate-700 leading-none truncate">
                             {product.name}
                           </p>
-                          <p className="text-[8px] text-slate-400 mt-0.5">
+                          <p className="text-[16px] text-slate-600 mt-0.5">
                             ${product.price} · {product.sales} sales
                           </p>
                         </div>
@@ -615,11 +603,11 @@ const displayName = user?.name || "Pilot";
                 </div>
 
                 {/* Time Tracker */}
-                <div className="bg-[#0d1f13] p-5 rounded-3xl text-white">
-                  <p className="text-[10px] font-black text-green-400 uppercase tracking-widest mb-3">
+                <div className="bg-[#0d1f13] p-5 rounded-xl text-white">
+                  <p className="text-[13px] font-semibold text-green-400 uppercase tracking-widest mb-3">
                     Time Tracker
                   </p>
-                  <p className="text-3xl font-black tracking-tight mb-4">
+                  <p className="text-3xl font-semibold tracking-tight mb-4">
                     01:24:08
                   </p>
                   <div className="flex gap-2">
@@ -651,24 +639,24 @@ const displayName = user?.name || "Pilot";
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="bg-white rounded-3xl p-6 shadow-sm border border-slate-100 flex-1"
+              className="bg-white rounded-xl p-6 shadow-sm border border-slate-100 flex-1"
             >
               <div className="flex justify-between items-center mb-8">
                 <div>
-                  <h2 className="text-2xl font-black tracking-tight">
+                  <h2 className="text-2xl font-semibold tracking-tight">
                     Team Members
                   </h2>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-md text-slate-400 mt-1">
                     Manage your team and their access levels.
                   </p>
                 </div>
-                <button className="bg-[#006D35] text-white px-5 py-2.5 rounded-full text-xs font-black flex items-center gap-1.5 shadow-md shadow-green-200">
+                <button className="bg-[#006D35] text-white px-5 py-2.5 rounded-full text-md font-semibold flex items-center gap-1.5 shadow-md shadow-green-200">
                   <UserPlus size={14} /> Invite Member
                 </button>
               </div>
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-slate-50 text-slate-300 text-[10px] font-black uppercase tracking-widest">
+                  <tr className="border-b border-slate-50 text-slate-300 text-[10px] font-semibold uppercase tracking-widest">
                     <th className="pb-3 text-left pl-3">Member</th>
                     <th className="pb-3 text-left">Status</th>
                     <th className="pb-3 text-left">Joining Date</th>
@@ -684,7 +672,7 @@ const displayName = user?.name || "Pilot";
                       <td className="py-4 pl-3">
                         <div className="flex items-center gap-3">
                           <div
-                            className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-black"
+                            className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold"
                             style={{
                               background: avatarColors[i % avatarColors.length],
                               color:
@@ -694,10 +682,10 @@ const displayName = user?.name || "Pilot";
                             {getInitials(user.name)}
                           </div>
                           <div>
-                            <p className="text-xs font-black text-slate-800">
+                            <p className="text-lg font-semibold text-slate-800">
                               {user.name}
                             </p>
-                            <p className="text-[10px] text-slate-400">
+                            <p className="text-[16px] text-slate-400">
                               {user.email}
                             </p>
                           </div>
@@ -705,7 +693,7 @@ const displayName = user?.name || "Pilot";
                       </td>
                       <td className="py-4">
                         <span
-                          className={`text-[9px] font-black px-2.5 py-1.5 rounded-lg uppercase ${
+                          className={`text-[9px] font-semibold px-2.5 py-1.5 rounded-lg uppercase ${
                             user.status === "active"
                               ? "bg-green-50 text-green-600"
                               : "bg-slate-100 text-slate-400"
@@ -714,7 +702,7 @@ const displayName = user?.name || "Pilot";
                           {user.status}
                         </span>
                       </td>
-                      <td className="py-4 text-xs text-slate-500 font-semibold">
+                      <td className="py-4 text-md text-slate-500 font-semibold">
                         {new Date(user.joinDate).toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
@@ -770,7 +758,7 @@ const displayName = user?.name || "Pilot";
               key="calendar"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex-1 flex items-center justify-center bg-white rounded-3xl text-slate-300 font-black text-xl border border-slate-100"
+              className="flex-1 flex items-center justify-center bg-white rounded-3xl text-slate-300 font-semibold text-xl border border-slate-100"
             >
               Calendar Coming Soon...
             </motion.div>

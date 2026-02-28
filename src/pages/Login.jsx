@@ -181,6 +181,7 @@ import { useAuth } from "../context/AuthContext";
 // ... (sobgulo import thik thak thakbe)
 
 const Login = () => {
+  // eslint-disable-next-line no-unused-vars
   const { register, handleSubmit, setValue, formState: { errors } } = useForm(); // setValue add kora hoyeche
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -314,6 +315,13 @@ const Login = () => {
               {loading ? "INITIALIZING..." : "INITIALIZE CONNECTION"}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
+            {/* New Demo Login Button */}
+          <span
+            onClick={fillDemoCredentials}
+            className="text-[16px] text-blue-400 font-bold tracking-widest uppercase cursor-pointer hover:text-white hover:underline transition-all"
+          >
+            Demo Credentials
+          </span>
           </form>
 
           <div className="absolute -bottom-4 -right-4 text-white/5 font-black text-7xl select-none pointer-events-none">
@@ -329,13 +337,7 @@ const Login = () => {
           </div>
           <div className="h-4 w-[1px] bg-slate-800" />
 
-          {/* New Demo Login Button */}
-          <span
-            onClick={fillDemoCredentials}
-            className="text-[10px] text-blue-400 font-bold tracking-widest uppercase cursor-pointer hover:text-white hover:underline transition-all"
-          >
-            Demo Credentials
-          </span>
+
 
           <div className="h-4 w-[1px] bg-slate-800" />
           <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase cursor-pointer hover:text-white transition-colors">Emergency Reset</span>
