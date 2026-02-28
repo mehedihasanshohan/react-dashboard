@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router";
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import { AuthProvider } from './context/AuthContext';
-import TeamContent from './components/TeamContent';
+import PrivateRoute from './components/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -14,12 +14,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
   },
   {
-    path: "/team",
-    element: <TeamContent></TeamContent>
-  }
+    path: "*",
+    element: <Navigate to="/" replace />,
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(

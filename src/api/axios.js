@@ -1,15 +1,26 @@
-import axios from 'axios';
 
+import axios from "axios";
 const api = axios.create({
-  baseURL: 'https://task-api-eight-flax.vercel.app',
+  baseURL: "https://task-api-eight-flax.vercel.app",
 });
-
+// Attach token to every request
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('task_token');
+  const token = localStorage.getItem("task_token");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
+// If 401, clear token and redirect to login
+api.interceptors.response.use(
+  (res) => res,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem("task_token");
+      window.location.href = "/";
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default api;
